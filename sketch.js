@@ -11,6 +11,8 @@ let button8;
 let button9;
 let button10;
 let button11;
+let widthOriginal = 80;
+let heightOriginal = 80;
 let width = 100;
 let height = 100;
 
@@ -28,8 +30,9 @@ function  setup() {
   textAlign(CENTER);
   textStyle(BOLD);
   fill(255);
+  reset();
   console.log(icons);
-  for(let i = 0; i <= 10; i++){
+  /*for(let i = 0; i <= 10; i++){
     image(icons[i], PI*i*57  , sin(i)*150 + windowHeight/2.5);
     //button = createButton('Click to increase');
   //button = createButton('Press to in'); //select('#icon_0') //(`#icon__${i}`);
@@ -69,7 +72,7 @@ function  setup() {
   //button11 = select('#icon_11');
   //button11.class('buttonStyle');
   //button11.position(0,0);
-  }
+} */
   button0.mousePressed(buttonPressed);
   button1.mousePressed(buttonPressed1);
   button2.mousePressed(buttonPressed2);
@@ -92,6 +95,8 @@ function draw() {
   //width = 500;
   //icons[0].resize(width,0);
   //image(icons[0],0,300);
+
+
 
 function buttonPressed(){
     icons[0].width = width;
@@ -184,6 +189,64 @@ function buttonPressed10(){
     icons[10].resize(width,height);
     image(icons[10],random(windowWidth),random(windowHeight));
 }
+
+function keyTyped(){
+  if(key === 'r'){
+    reset();
+  }
+}
+
+
+  function reset(){
+    width = 100;
+    height = 100;
+    background(200);
+    textFont('Courier new');
+    textAlign(CENTER);
+    textStyle(BOLD);
+    fill(255);
+    console.log(icons);
+    for(let i = 0; i < icons.length; i++){
+    image(icons[i], PI*i*57 , sin(i)*150 + windowHeight/2.5);
+    button0 = select('#icon_0');
+    button0.class('buttonStyle');
+    button0.position(windowWidth/200, i * 75 + 100);
+    button1 = select('#icon_1');
+    button1.class('buttonStyle');
+    button1.position(windowWidth/i, i * 75 + 100);
+    button2 = select('#icon_2');
+    button2.class('buttonStyle');
+    button2.position(windowWidth/5.5, i * 75 + 100);
+    button3 = select('#icon_3');
+    button3.class('buttonStyle');
+    button3.position(windowWidth/3.6, i * 75 + 100);
+    button4 = select('#icon_4');
+    button4.class('buttonStyle');
+    button4.position(windowWidth/2.75, i * 75 + 100);
+    button5 = select('#icon_5');
+    button5.class('buttonStyle');
+    button5.position(windowWidth/2.2, i * 75 + 100);
+    button6 = select('#icon_6');
+    button6.class('buttonStyle');
+    button6.position(windowWidth/1.8, i * 75 + 100);
+    button7 = select('#icon_7');
+    button7.class('buttonStyle');
+    button7.position(windowWidth/1.54, i * 75 + 100);
+    button8 = select('#icon_8');
+    button8.class('buttonStyle');
+    button8.position(windowWidth/1.33, i * 75 + 100);
+    button9 = select('#icon_9');
+    button9.class('buttonStyle');
+    button9.position(windowWidth/1.18, i * 75 + 100);
+    button10 = select('#icon_10');
+    button10.class('buttonStyle');
+    button10.position(windowWidth/1.07, i * 75 + 100);
+    button11 = select('#icon_11');
+    for(let i = 0; i < icons.length; i++){
+      icons[i].resize(widthOriginal,heightOriginal);
+    }
+
+}}
 /*function reset(){
   width = 100;
   height = 100;
